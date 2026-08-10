@@ -1,1 +1,79 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const preloader = document.querySelector(".preloader");
 
+    setTimeout(function () {
+        if (preloader) {
+            preloader.classList.add("hide");
+        }
+    }, 500);
+
+    // Mobile menu
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", function () {
+            navMenu.classList.toggle("open");
+        });
+    }
+
+    // Close mobile menu after clicking a link
+    document.querySelectorAll(".nav-link").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("open");
+        });
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    revealElements.forEach(function (element) {
+        observer.observe(element);
+    });
+
+    // Counter animation
+    document.querySelectorAll(".counter").forEach(function (counter) {
+        const target = Number(counter.dataset.target);
+        let current = 0;
+
+        const updateCounter = setInterval(function () {
+            current++;
+
+            counter.textContent = current;
+
+            if (current >= target) {
+                clearInterval(updateCounter);
+            }
+        }, 40);
+    });
+
+    // Back to top
+    const backTop = document.querySelector(".back-top");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 500) {
+            backTop.classList.add("show");
+        } else {
+            backTop.classList.remove("show");
+        }
+    });
+
+    if (backTop) {
+        backTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+});
