@@ -956,3 +956,34 @@ html {
     }
 
 }
+.skills-3d-heading {
+    position: absolute;
+
+    top: 70px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    width: 100%;
+
+    z-index: 20;
+}
+
+.skills-3d-heading h2 {
+    margin-top: 18px;
+
+    font-size: clamp(42px, 5vw, 70px);
+
+    line-height: 1;
+
+    color: #fff;
+}
+
+.skills-3d-heading h2 span {
+    color: #e61919;
+}
+.skills-orbit {
+    display: none;
+}
