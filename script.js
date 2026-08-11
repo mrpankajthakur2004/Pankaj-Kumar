@@ -61,155 +61,134 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* =========================================
-   3D SKILLS SCROLL ANIMATION
+   3D SKILLS TYRE / WHEEL
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const section =
-    document.querySelector(".skills-3d-section");
+    const section =
+        document.querySelector(".skills-3d-section");
 
-  const cards =
-    document.querySelectorAll(".skill-3d");
+    const wheel =
+        document.querySelector(".skills-3d-grid");
 
+    const cards =
+        document.querySelectorAll(".skill-3d");
 
-  if (!section || !cards.length) return;
-
-
-  let currentIndex = -1;
-
-
-  function updateSkillsAnimation() {
-
-    const rect =
-      section.getBoundingClientRect();
+    if (!section || !wheel || !cards.length) return;
 
 
-    const sectionHeight =
-      section.offsetHeight;
+    const totalCards = cards.length;
 
+    /*
+       Radius of the wheel
+    */
 
-    const viewportHeight =
-      window.innerHeight;
+    const radius = 380;
 
 
     /*
-      Calculate scroll progress.
-
-      0 = section starts
-      1 = section finishes
+       Put every card around
+       the circular wheel
     */
 
-    const scrollable =
-      sectionHeight - viewportHeight;
+    cards.forEach((card, index) => {
 
+        const angle =
+            (360 / totalCards) * index;
 
-    let progress =
-      -rect.top / scrollable;
-
-
-    progress =
-      Math.max(
-        0,
-        Math.min(1, progress)
-      );
-
-
-    /*
-      One card gets activated
-      after every scroll step.
-    */
-
-    const index =
-      Math.floor(
-        progress * cards.length
-      );
-
-
-    const safeIndex =
-      Math.min(
-        cards.length - 1,
-        Math.max(0, index)
-      );
-
-
-    cards.forEach((card, i) => {
-
-      card.classList.remove("active");
-
-      /*
-        Cards before current card
-        rotate backward in 3D.
-      */
-
-      if (i < safeIndex) {
+        card.dataset.angle = angle;
 
         card.style.transform = `
-          translateZ(-40px)
-          rotateX(70deg)
-          rotateY(-18deg)
-          scale(.88)
+            rotateY(${angle}deg)
+            translateZ(${radius}px)
         `;
-
-      }
-
-
-      /*
-        Current card becomes active.
-      */
-
-      else if (i === safeIndex) {
-
-        card.style.transform = `
-          translateZ(90px)
-          rotateX(0deg)
-          rotateY(0deg)
-          scale(1.06)
-        `;
-
-        card.classList.add("active");
-
-      }
-
-
-      /*
-        Cards waiting for their turn.
-      */
-
-      else {
-
-        card.style.transform = `
-          translateZ(0)
-          rotateX(0deg)
-          rotateY(0deg)
-          scale(1)
-        `;
-
-      }
 
     });
 
 
-    currentIndex = safeIndex;
+    function updateWheel() {
 
-  }
+        const rect =
+            section.getBoundingClientRect();
 
-
-  /*
-    Run animation on scroll
-  */
-
-  window.addEventListener(
-    "scroll",
-    updateSkillsAnimation,
-    { passive: true }
-  );
+        const scrollable =
+            section.offsetHeight -
+            window.innerHeight;
 
 
-  /*
-    Initial state
-  */
+        let progress =
+            -rect.top / scrollable;
 
-  updateSkillsAnimation();
+
+        progress =
+            Math.max(
+                0,
+                Math.min(1, progress)
+            );
+
+
+        /*
+           Complete wheel rotation
+        */
+
+        const rotation =
+            progress * 360;
+
+
+        wheel.style.transform = `
+            rotateY(${-rotation}deg)
+        `;
+
+
+        /*
+           Find card closest to front
+        */
+
+        let activeIndex =
+            Math.round(
+                progress *
+                (totalCards - 1)
+            );
+
+
+        activeIndex =
+            Math.max(
+                0,
+                Math.min(
+                    totalCards - 1,
+                    activeIndex
+                )
+            );
+
+
+        cards.forEach(
+            (card, index) => {
+
+                card.classList.toggle(
+                    "active",
+                    index === activeIndex
+                );
+
+            }
+        );
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateWheel,
+        { passive: true }
+    );
+
+
+    window.addEventListener(
+        "resize",
+        updateWheel
+    );
+
+
+    updateWheel();
 
 });
