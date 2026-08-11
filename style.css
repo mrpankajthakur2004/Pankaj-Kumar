@@ -987,3 +987,13 @@ html {
 .skills-orbit {
     display: none;
 }
+@media (max-width: 767px) {
+
+    .skills-3d-heading {
+        top: 70px;
+    }
+
+    .skills-3d-sticky {
+        padding-top: 212px;
+    }
+}
