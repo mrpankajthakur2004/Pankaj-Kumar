@@ -49,6 +49,7 @@
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='5' y='5' width='90' height='90' rx='18' fill='%230D0D0D' stroke='%23E61919' stroke-width='6'/><text x='50' y='58' font-family='sans-serif' font-weight='900' font-size='44' fill='%23E61919' text-anchor='middle' dominant-baseline='middle'>PK</text></svg>"
   >
 
+\n<style id="animated-hero-styles">\n/* ================= ANIMATED HERO ================= */\n.animated-hero{position:relative;isolation:isolate;overflow:hidden;min-height:calc(100vh - 80px);display:flex;align-items:center;background:#080808;}\n.animated-hero .hero-grid-lines{position:absolute;inset:-20%;opacity:.22;background-image:linear-gradient(rgba(255,30,30,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,30,30,.08) 1px,transparent 1px);background-size:70px 70px;transform:perspective(700px) rotateX(58deg) translateY(18%);mask-image:linear-gradient(to bottom,transparent 0%,#000 30%,#000 70%,transparent 100%);animation:gridMove 14s linear infinite;}\n.hero-animated-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;}\n.hero-animated-bg:before{content:"";position:absolute;width:760px;height:760px;right:-160px;top:-170px;border-radius:50%;background:radial-gradient(circle,rgba(230,25,25,.22),rgba(230,25,25,.06) 38%,transparent 70%);filter:blur(10px);animation:heroPulse 5s ease-in-out infinite;}\n.hero-animated-bg:after{content:"";position:absolute;left:-260px;bottom:-300px;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(255,30,30,.10),transparent 68%);animation:heroPulse 7s ease-in-out infinite reverse;}\n.hero-orb{position:absolute;border:1px solid rgba(255,35,35,.22);border-radius:50%;animation:orbFloat 8s ease-in-out infinite;}\n.orb-1{width:430px;height:430px;right:8%;top:20%;}.orb-2{width:620px;height:620px;right:0;top:7%;border-style:dashed;animation-duration:18s;}.orb-3{width:270px;height:270px;left:42%;top:15%;opacity:.45;animation-duration:11s;}\n.hero-particle{position:absolute;width:4px;height:4px;border-radius:50%;background:#ff2424;box-shadow:0 0 14px #ff2424;animation:particleFloat 5s ease-in-out infinite;}\n.p1{left:48%;top:22%;}.p2{left:72%;top:18%;animation-delay:1s}.p3{left:84%;top:66%;animation-delay:2s}.p4{left:58%;top:75%;animation-delay:3s}.p5{left:38%;top:70%;animation-delay:1.5s}\n.animated-hero-grid{position:relative;z-index:2;min-height:calc(100vh - 80px);align-items:center;}\n.animated-hero-content{position:relative;z-index:3;padding-top:25px;}\n.hero-tag{animation:fadeUp .7s .05s both;}\n.hero-title{font-size:clamp(58px,7.2vw,108px)!important;line-height:.94!important;letter-spacing:-.055em!important;margin:22px 0 22px!important;position:relative;animation:fadeUp .8s .15s both;}\n.hero-title span{position:relative;text-shadow:0 0 35px rgba(255,25,25,.18);}\n.hero-cursor{display:inline-block;width:6px;height:.72em;margin-left:10px;background:#ff1e25;vertical-align:baseline;animation:blink .8s steps(1) infinite;}\n.hero-role{display:flex;align-items:center;gap:10px;font-weight:800;font-size:clamp(15px,1.45vw,21px);letter-spacing:.02em;margin-bottom:24px;animation:fadeUp .8s .25s both;}\n.hero-role span{color:#fff}.hero-role i{color:#ff2020;font-style:normal;font-size:22px}.hero-role strong{color:#ff2020;}\n.hero-description{max-width:590px!important;animation:fadeUp .8s .35s both;}\n.hero-buttons{animation:fadeUp .8s .45s both;}\n.hero-btn{transition:transform .25s ease,box-shadow .25s ease!important;will-change:transform;}\n.hero-btn:hover{transform:translateY(-4px)!important;box-shadow:0 12px 35px rgba(255,20,20,.22);}\n.animated-trust{animation:fadeUp .8s .55s both;}\n.animated-hero-visual{position:relative;height:620px;display:flex;align-items:center;justify-content:center;}\n.hero-photo-stage{position:relative;width:min(620px,48vw);height:min(620px,48vw);display:flex;align-items:center;justify-content:center;}\n.hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,30,30,.38);}.ring-main{inset:7%;animation:ringRotate 18s linear infinite;}.ring-main:before,.ring-main:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#ff2525;box-shadow:0 0 18px #ff2525;}.ring-main:before{top:-5px;left:50%;}.ring-main:after{bottom:22%;right:-5px;}\n.ring-secondary{inset:1%;border-color:rgba(255,30,30,.12);border-style:dashed;animation:ringRotate 28s linear infinite reverse;}\n.hero-photo-glow{position:absolute;width:72%;height:72%;border-radius:50%;background:radial-gradient(circle,rgba(255,30,30,.23),transparent 68%);filter:blur(25px);animation:heroPulse 4s ease-in-out infinite;}\n.hero-scan-line{position:absolute;z-index:3;width:66%;height:1px;background:linear-gradient(90deg,transparent,#ff3030,transparent);box-shadow:0 0 14px #ff3030;opacity:.7;animation:scan 4s ease-in-out infinite;}\n.animated-photo{position:relative;z-index:2;width:74%;height:90%;display:flex;align-items:flex-end;justify-content:center;animation:photoIn 1.1s .2s both,photoFloat 5s 1.2s ease-in-out infinite;}\n.animated-photo:after{content:"";position:absolute;inset:20% 10% 0;border-radius:50% 50% 8% 8%;background:linear-gradient(180deg,rgba(255,20,20,.09),rgba(255,20,20,0));z-index:-1;}\n.animated-photo .hero-image{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 25px 40px rgba(0,0,0,.6));}\n.hero-tech-label{position:absolute;z-index:5;display:flex;align-items:center;gap:9px;padding:10px 13px;border:1px solid rgba(255,35,35,.35);background:rgba(12,12,12,.76);backdrop-filter:blur(10px);border-radius:10px;font-size:8px;line-height:1.35;letter-spacing:.08em;color:#bcbcbc;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:labelFloat 4s ease-in-out infinite;}\n.hero-tech-label i{color:#ff2020;font-size:15px}.label-top{top:14%;left:5%;}.label-bottom{bottom:15%;right:2%;animation-delay:1.5s;}\n.animated-hero .card-one{left:1%;top:26%;animation-delay:.3s;}.animated-hero .card-two{right:0;bottom:22%;}.animated-float{animation:cardFloat 4.5s ease-in-out infinite;}.delayed-float{animation-delay:1.2s;}\n.hero-status{position:absolute;right:9%;top:6%;font-size:9px;letter-spacing:.12em;color:#a8a8a8;display:flex;align-items:center;gap:7px;animation:fadeUp .8s .8s both;}.status-dot{width:7px;height:7px;border-radius:50%;background:#21e67a;box-shadow:0 0 12px #21e67a;animation:statusBlink 1.5s ease-in-out infinite;}\n.hero-scroll-indicator{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;color:#777;font-size:8px;letter-spacing:.2em;z-index:4;animation:scrollHint 2s ease-in-out infinite;}.hero-scroll-indicator i{color:#ff2020;}\n@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}\n@keyframes photoIn{from{opacity:0;transform:scale(.88) translateY(30px)}to{opacity:1;transform:scale(1) translateY(0)}}\n@keyframes photoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}\n@keyframes labelFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}\n@keyframes heroPulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.08);opacity:1}}\n@keyframes ringRotate{to{transform:rotate(360deg)}}\n@keyframes orbFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(-18px,12px)}}\n@keyframes particleFloat{0%,100%{transform:translate(0,0);opacity:.35}50%{transform:translate(20px,-25px);opacity:1}}\n@keyframes scan{0%,100%{transform:translateY(-150px);opacity:0}20%,80%{opacity:.75}50%{transform:translateY(150px)}}\n@keyframes blink{50%{opacity:0}}\n@keyframes statusBlink{50%{opacity:.35;transform:scale(.7)}}\n@keyframes gridMove{to{background-position:0 70px,70px 0}}\n@keyframes scrollHint{0%,100%{opacity:.45;transform:translate(-50%,0)}50%{opacity:1;transform:translate(-50%,6px)}}\n@media (max-width:991px){.animated-hero-grid{grid-template-columns:1fr!important;text-align:center;padding-top:50px;padding-bottom:80px}.animated-hero-content{display:flex;flex-direction:column;align-items:center}.hero-description{margin-left:auto;margin-right:auto}.hero-buttons{justify-content:center}.animated-hero-visual{height:560px;margin-top:-10px}.hero-photo-stage{width:min(560px,82vw);height:min(560px,82vw)}.hero-status{right:4%;}.label-top{left:0}.label-bottom{right:0}.animated-hero .card-one{left:0}.animated-hero .card-two{right:0}}\n@media (max-width:767px){.animated-hero{min-height:auto;padding-top:50px}.animated-hero-grid{min-height:auto}.hero-title{font-size:clamp(48px,15vw,76px)!important}.hero-role{font-size:13px;flex-wrap:wrap;justify-content:center}.hero-description{font-size:14px!important}.animated-hero-visual{height:440px;margin-top:5px}.hero-photo-stage{width:100%;height:100%;}.ring-main{inset:8%}.ring-secondary{inset:2%}.hero-tech-label{display:none}.animated-hero .card-one{left:0;top:18%;transform:scale(.82)}.animated-hero .card-two{right:0;bottom:16%;transform:scale(.82)}.hero-status{top:2%;right:50%;transform:translateX(50%);white-space:nowrap}.hero-scroll-indicator{display:none}.hero-cursor{width:4px;margin-left:6px}}\n@media (prefers-reduced-motion:reduce){.animated-hero *,.animated-hero *:before,.animated-hero *:after{animation:none!important;transition:none!important}}\n</style>\n
 </head>
 
 
@@ -144,199 +145,94 @@
 
 
 <!-- =========================================
-     HERO
+     HERO — ANIMATED
 ========================================= -->
-
-<section class="hero section" id="home">
-
-  <div class="hero-bg"></div>
-
-
-  <div class="container hero-grid">
-
-
-    <!-- HERO CONTENT -->
-
-    <div class="hero-content reveal">
-
-      <span class="section-tag">
-        HELLO, I'M
-      </span>
-
-
-      <h1>
-
-        Pankaj
-
-        <span>
-          Kumar
-        </span>
-
-      </h1>
-
-
-      <h2>
-
-        Web Designer &
-
-        <span>
-          Website Developer
-        </span>
-
-      </h2>
-
-
-      <p>
-
-        I design and develop modern, responsive and
-        conversion-focused websites that help businesses
-        stand out and grow online.
-
-      </p>
-
-
-      <!-- HERO BUTTONS -->
-
-      <div class="hero-buttons">
-
-        <a
-          href="#portfolio"
-          class="btn btn-primary"
-        >
-
-          View My Work
-
-          <i class="fa-solid fa-arrow-right"></i>
-
-        </a>
-
-
-        <a
-          href="#contact"
-          class="btn btn-outline"
-        >
-
-          Let's Talk
-
-          <i class="fa-regular fa-paper-plane"></i>
-
-        </a>
-
-      </div>
-
-
-      <!-- HERO TRUST -->
-
-      <div class="hero-trust">
-
-        <div class="avatars">
-
-          <div class="avatar">
-            PK
-          </div>
-
-          <div class="avatar">
-
-            <i class="fa-solid fa-user"></i>
-
-          </div>
-
-          <div class="avatar">
-
-            <i class="fa-solid fa-user"></i>
-
-          </div>
-
-        </div>
-
-
-        <div>
-
-          <strong>
-            50+ Projects Completed
-          </strong>
-
-          <span>
-
-            <i class="fa-solid fa-circle"></i>
-
-            Happy Clients Worldwide
-
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- HERO IMAGE -->
-
-    <div class="hero-visual reveal">
-
-      <div class="hero-ring"></div>
-
-      <div class="hero-glow"></div>
-
-
-      <div class="hero-image-wrapper">
-
-        <img
-          src="new-banner.png"
-          alt="Pankaj Kumar - Web Designer"
-          class="hero-image"
-        >
-
-      </div>
-
-
-      <!-- EXPERIENCE CARD -->
-
-      <div class="floating-card card-one">
-
-        <i class="fa-solid fa-code"></i>
-
-        <div>
-
-          <strong>
-            3+
-          </strong>
-
-          <span>
-            Years Experience
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- WEBSITE CARD -->
-
-      <div class="floating-card card-two">
-
-        <i class="fa-solid fa-laptop-code"></i>
-
-        <div>
-
-          <strong>
-            50+
-          </strong>
-
-          <span>
-            Websites
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
+<section class="hero section animated-hero" id="home">
+  <div class="hero-animated-bg" aria-hidden="true">
+    <span class="hero-grid-lines"></span>
+    <span class="hero-orb orb-1"></span>
+    <span class="hero-orb orb-2"></span>
+    <span class="hero-orb orb-3"></span>
+    <span class="hero-particle p1"></span>
+    <span class="hero-particle p2"></span>
+    <span class="hero-particle p3"></span>
+    <span class="hero-particle p4"></span>
+    <span class="hero-particle p5"></span>
   </div>
 
+  <div class="container hero-grid animated-hero-grid">
+    <div class="hero-content reveal animated-hero-content">
+      <span class="section-tag hero-tag reveal-up">HELLO, I'M</span>
+
+      <h1 class="hero-title reveal-up">
+        Pankaj <span>Kumar</span><b class="hero-cursor" aria-hidden="true"></b>
+      </h1>
+
+      <div class="hero-role reveal-up">
+        <span>WEB DESIGNER</span>
+        <i>×</i>
+        <strong>WEBSITE DEVELOPER</strong>
+      </div>
+
+      <p class="hero-description reveal-up">
+        I design and develop modern, responsive and conversion-focused websites that help businesses stand out and grow online.
+      </p>
+
+      <div class="hero-buttons reveal-up">
+        <a href="#portfolio" class="btn btn-primary hero-btn magnetic-btn">
+          View My Work <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn btn-outline hero-btn magnetic-btn">
+          Let's Talk <i class="fa-regular fa-paper-plane"></i>
+        </a>
+      </div>
+
+      <div class="hero-trust animated-trust reveal-up">
+        <div class="avatars">
+          <div class="avatar">PK</div>
+          <div class="avatar"><i class="fa-solid fa-user"></i></div>
+          <div class="avatar"><i class="fa-solid fa-user"></i></div>
+        </div>
+        <div>
+          <strong>50+ Projects Completed</strong>
+          <span><i class="fa-solid fa-circle"></i> Happy Clients Worldwide</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal animated-hero-visual">
+      <div class="hero-tech-label label-top"><i class="fa-solid fa-code"></i><span>CREATIVE<br>WEB DESIGN</span></div>
+      <div class="hero-tech-label label-bottom"><i class="fa-solid fa-bolt"></i><span>FAST &<br>RESPONSIVE</span></div>
+
+      <div class="hero-photo-stage">
+        <div class="hero-ring ring-main"></div>
+        <div class="hero-ring ring-secondary"></div>
+        <div class="hero-scan-line"></div>
+        <div class="hero-photo-glow"></div>
+        <div class="hero-image-wrapper animated-photo">
+          <img src="new-banner.png" alt="Pankaj Kumar - Web Designer" class="hero-image">
+        </div>
+      </div>
+
+      <div class="floating-card card-one animated-float">
+        <i class="fa-solid fa-code"></i>
+        <div><strong>3+</strong><span>Years Experience</span></div>
+      </div>
+
+      <div class="floating-card card-two animated-float delayed-float">
+        <i class="fa-solid fa-laptop-code"></i>
+        <div><strong>50+</strong><span>Websites</span></div>
+      </div>
+
+      <div class="hero-status">
+        <span class="status-dot"></span> AVAILABLE FOR PROJECTS
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator" aria-hidden="true">
+    <span>SCROLL TO EXPLORE</span><i class="fa-solid fa-arrow-down"></i>
+  </div>
 </section>
 
 
@@ -1686,6 +1582,87 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- MAIN JS -->
 
 <script src="script.js"></script>
+
+
+
+\n<script>\n/* Animated hero button interaction */\ndocument.addEventListener("DOMContentLoaded", function () {\n  document.querySelectorAll(".magnetic-btn").forEach(function (button) {\n    button.addEventListener("mousemove", function (e) {\n      const r = button.getBoundingClientRect();\n      const x = e.clientX - r.left - r.width / 2;\n      const y = e.clientY - r.top - r.height / 2;\n      button.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px) translateY(-4px)`;\n    });\n    button.addEventListener("mouseleave", function () {\n      button.style.transform = "";\n    });\n  });\n});\n</script>\n
+<!-- =========================================
+     PORTFOLIO FILTER JS
+========================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+  const tabs =
+    document.querySelectorAll(".portfolio-tab");
+
+
+  const projects =
+    document.querySelectorAll(".project-card");
+
+
+  tabs.forEach(function (tab) {
+
+
+    tab.addEventListener("click", function () {
+
+
+      /* Remove active from all tabs */
+
+      tabs.forEach(function (item) {
+
+        item.classList.remove("active");
+
+      });
+
+
+      /* Add active to clicked tab */
+
+      tab.classList.add("active");
+
+
+      /* Get selected category */
+
+      const filter =
+        tab.getAttribute("data-filter");
+
+
+      /* Filter projects */
+
+      projects.forEach(function (project) {
+
+
+        const category =
+          project.getAttribute("data-category");
+
+
+        if (
+          filter === "all" ||
+          category === filter
+        ) {
+
+          project.classList.remove("hidden");
+
+        } else {
+
+          project.classList.add("hidden");
+
+        }
+
+
+      });
+
+    });
+
+  });
+
+
+});
+
+</script>
+
 
 </body>
 
