@@ -1520,6 +1520,57 @@
 
 
 <!-- =========================================
+     SCROLL SPY NAVIGATION
+========================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll(
+    "main section[id]"
+  );
+
+  const navLinks = document.querySelectorAll(
+    ".nav-menu .nav-link"
+  );
+
+  const setActiveNav = (id) => {
+    navLinks.forEach((link) => {
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === `#${id}`
+      );
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visibleSections = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (visibleSections.length) {
+        setActiveNav(visibleSections[0].target.id);
+      }
+    },
+    {
+      root: null,
+      rootMargin: "-25% 0px -60% 0px",
+      threshold: [0, 0.1, 0.25, 0.5]
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+
+  // Keep Home active when the page is at the very top.
+  window.addEventListener("scroll", function () {
+    if (window.scrollY < 120) {
+      setActiveNav("home");
+    }
+  }, { passive: true });
+});
+</script>
+
+
+<!-- =========================================
      FOOTER
 ========================================= -->
 
@@ -1635,86 +1686,6 @@
 <!-- MAIN JS -->
 
 <script src="script.js"></script>
-
-
-
-<!-- =========================================
-     PORTFOLIO FILTER JS
-========================================= -->
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-
-  const tabs =
-    document.querySelectorAll(".portfolio-tab");
-
-
-  const projects =
-    document.querySelectorAll(".project-card");
-
-
-  tabs.forEach(function (tab) {
-
-
-    tab.addEventListener("click", function () {
-
-
-      /* Remove active from all tabs */
-
-      tabs.forEach(function (item) {
-
-        item.classList.remove("active");
-
-      });
-
-
-      /* Add active to clicked tab */
-
-      tab.classList.add("active");
-
-
-      /* Get selected category */
-
-      const filter =
-        tab.getAttribute("data-filter");
-
-
-      /* Filter projects */
-
-      projects.forEach(function (project) {
-
-
-        const category =
-          project.getAttribute("data-category");
-
-
-        if (
-          filter === "all" ||
-          category === filter
-        ) {
-
-          project.classList.remove("hidden");
-
-        } else {
-
-          project.classList.add("hidden");
-
-        }
-
-
-      });
-
-    });
-
-  });
-
-
-});
-
-</script>
-
 
 </body>
 
