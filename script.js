@@ -192,3 +192,75 @@ document.addEventListener("DOMContentLoaded", () => {
     updateWheel();
 
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+  const tabs =
+    document.querySelectorAll(".portfolio-tab");
+
+
+  const projects =
+    document.querySelectorAll(".project-card");
+
+
+  tabs.forEach(function (tab) {
+
+
+    tab.addEventListener("click", function () {
+
+
+      /* Remove active from all tabs */
+
+      tabs.forEach(function (item) {
+
+        item.classList.remove("active");
+
+      });
+
+
+      /* Add active to clicked tab */
+
+      tab.classList.add("active");
+
+
+      /* Get selected category */
+
+      const filter =
+        tab.getAttribute("data-filter");
+
+
+      /* Filter projects */
+
+      projects.forEach(function (project) {
+
+
+        const category =
+          project.getAttribute("data-category");
+
+
+        if (
+          filter === "all" ||
+          category === filter
+        ) {
+
+          project.classList.remove("hidden");
+
+        } else {
+
+          project.classList.add("hidden");
+
+        }
+
+
+      });
+
+    });
+
+  });
+
+
+});
+
