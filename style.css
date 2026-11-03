@@ -24,8 +24,11 @@ button { font: inherit; }
 .page-glow { position: fixed; pointer-events: none; z-index: -1; filter: blur(60px); opacity: .48; }
 .page-glow-one { width: 360px; height: 360px; top: 10%; right: -210px; background: #bcecff; }
 .page-glow-two { width: 300px; height: 300px; bottom: 8%; left: -190px; background: #c7f3f2; }
-.section-wrap { width: min(1160px, calc(100% - 64px)); margin-inline: auto; }
-.site-header { height: 82px; width: min(1160px, calc(100% - 64px)); margin: auto; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); position: relative; z-index: 20; }
+.section-wrap {
+  width: min(1300px, calc(100% - 64px));
+  margin-inline: auto;
+}
+.site-header { height: 82px; width: min(1300px, calc(100% - 64px)); margin: auto; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); position: relative; z-index: 20; }
 .brand { display: inline-flex; align-items: center; }
 .brand-mark { font-size: 32px; font-weight: 800; letter-spacing: -4px; color: var(--teal); line-height: 1; }
 .brand-mark span { color: var(--ink); }
