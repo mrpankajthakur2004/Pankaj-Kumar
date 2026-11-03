@@ -158,3 +158,33 @@ h1 span, h2 em { color: var(--teal); font-style: normal; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+/* Smart Sticky Glass Header */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(20, 184, 166, 0.14);
+    box-shadow: 0 4px 24px rgba(15, 118, 110, 0.06);
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Header hidden while scrolling down */
+.site-header.header-hidden {
+    transform: translateY(-110%);
+}
+
+/* Slightly stronger glass while scrolling */
+.site-header.header-scrolled {
+    background: rgba(240, 253, 250, 0.88);
+    box-shadow: 0 8px 30px rgba(15, 118, 110, 0.10);
+}
