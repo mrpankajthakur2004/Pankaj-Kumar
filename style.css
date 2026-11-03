@@ -67,7 +67,7 @@ h1 span, h2 em { color: var(--teal); font-style: normal; }
   height: 360px;
   position: relative;
   z-index: 2;
-  border-radius: 46% 46% 28px 28px;
+  border-radius: 50% 50% 28px 28px;
   overflow: hidden;
   background: linear-gradient(
     145deg,
